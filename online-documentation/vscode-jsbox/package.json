@@ -1,0 +1,154 @@
+{
+  "name": "jsbox",
+  "displayName": "JSBox",
+  "description": "JSBox Development Utilities on VSCode",
+  "author": "Cyan <log.e@qq.com>",
+  "icon": "asset/icon.png",
+  "version": "0.0.16",
+  "publisher": "Ying",
+  "engines": {
+    "vscode": "^1.17.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyanzhong/vscode-jsbox"
+  },
+  "keywords": [
+    "JSBox",
+    "jsbox",
+    "xTeko",
+    "xteko"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onDebug",
+    "onLanguage:javascript",
+    "onLanguage:json",
+    "onCommand:jsBox.addHost",
+    "onCommand:jsBox.deleteHost",
+    "onCommand:jsBox.showHosts",
+    "onCommand:jsBox.syncFile",
+    "onCommand:jsBox.downloadFile"
+  ],
+  "main": "./out/extension",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^2.5.3",
+    "vscode": "^1.1.5",
+    "@types/node": "^7.0.43",
+    "@types/mocha": "^2.2.42"
+  },
+  "dependencies": {
+    "request": "^2.79.0",
+    "zip-folder": "1.0.0",
+    "open": "0.0.5"
+  },
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "JSBox configuration",
+      "properties": {
+        "jsBox.hosts": {
+          "type": "array",
+          "default": [],
+          "description": "Fill this with your connect hosts.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ip": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "jsBox.autoUpload": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to sync source file automatically."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "jsBox.addHost",
+        "title": "JSBox: Add Host"
+      },
+      {
+        "command": "jsBox.deleteHost",
+        "title": "JSBox: Delete Host"
+      },
+      {
+        "command": "jsBox.showHosts",
+        "title": "JSBox: Show Hosts"
+      },
+      {
+        "command": "jsBox.syncFile",
+        "title": "JSBox: Sync File"
+      },
+      {
+        "command": "jsBox.downloadFile",
+        "title": "JSBox: Download File"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "jsBox.addHost"
+        },
+        {
+          "command": "jsBox.deleteHost"
+        },
+        {
+          "command": "jsBox.showHosts"
+        },
+        {
+          "command": "jsBox.syncFile"
+        },
+        {
+          "command": "jsBox.downloadFile"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "jsBox.syncFile",
+        "key": "ctrl+shift+r",
+        "mac": "cmd+shift+r",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jsBox.downloadFile",
+        "key": "ctrl+shift+d",
+        "mac": "cmd+shift+d",
+        "when": "editorTextFocus"
+      }
+    ],
+    "grammars": [
+      {
+        "scopeName": "source.jsbox",
+        "path": "./syntaxes/jsbox.json",
+        "injectTo": [
+          "source.js",
+          "source.ts"
+        ]
+      }
+    ],
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/jsbox.json"
+      }
+    ]
+  }
+}

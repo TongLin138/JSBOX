@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <img id="image" src="http://localhost:6060/image.jpeg">
+    <script src="http://localhost:6060/tesseract.js"></script>
+    <script>
+      window.Tesseract = Tesseract.create({
+        workerPath: "http://localhost:6060/worker.js",
+        langPath: "http://localhost:6060/data/",
+        corePath: "http://localhost:6060/index.js",
+      });
+      function recognize(language) {
+        let image = document.getElementById("image");
+
+        Tesseract.recognize(image, {"lang": language}).then(data => {
+          $notify("didRecognize", data.text);
+        });
+      }
+    </script>
+  </body>
+</html>

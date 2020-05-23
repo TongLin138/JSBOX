@@ -1,0 +1,660 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "JSBox",
+  "injectionSelector": "L:source",
+  "fileTypes": ["js", "ts"],
+  "patterns": [
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#interfaces"
+    }
+  ],
+  "repository": {
+    "functions": {
+      "patterns": [
+        {
+          "match": "(\\$require|\\$l10n|\\$delay|\\$rect|\\$size|\\$point|\\$insets|\\$color|\\$rgb|\\$rgba|\\$font|\\$range|\\$indexPath|\\$cellInset|\\$transform|\\$data|\\$labeledValue|\\$props|\\$objc|\\$objc_retain|\\$objc_release|\\$get_protocol|\\$objc_clean|\\$define_struct|\\$define|\\$protocol|\\$icon|\\$include)\\b",
+          "name": "entity.name.function.jsbox"
+        }
+      ]
+    },
+    "interfaces": {
+      "patterns": [
+        {
+          "match": "(\\$device)(?:\\s*\\.\\s*(taptic))?(?:\\s*\\.\\s*(info|isIphoneX|isIphonePlus|isIpad|isIpadPro|space|ssid|networkType|wlanAddress))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$app)(?:\\s*\\.\\s*(close|openURL|canOpenURL|openExtension|openBrowser|listen|notify|tips|setupWidget))?(?:\\s*\\.\\s*(debug|env|widgetIndex|info|idleTimerDisabled|applicationIconBadgeNumber|networkActivityIndicatorVisible|autoKeyboardEnabled|keyboardToolbarEnabled|rotateDisabled|strings|minSDKVer|minOSVer))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$system)(?:\\s*\\.\\s*(call|sms|mailto|facetime|home|makeIcon))?(?:\\s*\\.\\s*(brightness|volume))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$timer)(?:\\s*\\.\\s*(schedule))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$clipboard)(?:\\s*\\.\\s*(setTextLocalOnly|clear|copy|set))?(?:\\s*\\.\\s*(items|text|texts|html|image|images|phoneNumbers|phoneNumber|links|link|emails|email|dates|date))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$http)(?:\\s*\\.\\s*(setNetworkActivityIndicatorVisible|sync|request|get|post|download|upload|shorten|lengthen|startServer|stopServer|suspend|resume|cancel))?(?:\\s*\\.\\s*(status))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$cache)(?:\\s*\\.\\s*(set|setAsync|get|getAsync|remove|removeAsync|clear|clearAsync))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$thread)(?:\\s*\\.\\s*(main|background))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$http)(?:\\s*\\.\\s*(setTextLocalOnly|clear|copy|set))?(?:\\s*\\.\\s*(items|text|html|image|phoneNumbers|phoneNumber|links|link|emails|email|dates|date))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$env)(?:\\s*\\.\\s*(app|today|action|safari|all))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$align)(?:\\s*\\.\\s*(left|center|right|justified|natural))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$contentMode)(?:\\s*\\.\\s*(scaleToFill|scaleAspectFit|scaleAspectFill|redraw|center|top|bottom|left|right))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$btnType)(?:\\s*\\.\\s*(custom|system|disclosure|infoLight|infoDark|contactAdd))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$zero)(?:\\s*\\.\\s*(point|size|rect|insets))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$layout)(?:\\s*\\.\\s*(fill|center))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$lineCap)(?:\\s*\\.\\s*(butt|round|square))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$lineJoin)(?:\\s*\\.\\s*(miter|round|bevel))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$mediaType)(?:\\s*\\.\\s*(image|jpeg|jpeg2000|tiff|pict|gif|png|icns|bmp|ico|raw|live|movie|video|audio|mov|mpeg|mpeg2|mp3|mp4|avi|wav|midi))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$imgPicker)(?:\\s*\\.\\s*(quality|captureMode|device|flashMode))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$kbType)(?:\\s*\\.\\s*(default|ascii|nap|url|number|phone|namePhone|email|decimal|twitter|search|asciiPhone))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$assetMedia)(?:\\s*\\.\\s*(type|subType))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$pageSize)(?:\\s*\\.\\s*(letter|governmentLetter|legal|juniorLegal|ledger|tabloid|A0|A1|A2|A3|A4|A5|A6|A7|A8|A9|A10|B0|B1|B2|B3|B4|B5|B6|B7|B8|B9|B10|C0|C1|C2|C3|C4|C5|C6|C7|C8|C9|C10|custom))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$ui)(?:\\s*\\.\\s*(create|render|push|fill|pop|popToRoot|get|animate|alert|action|menu|toast|clearToast|error|loading|progress|preview|selectIcon))?(?:\\s*\\.\\s*(window|vc))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$picker)(?:\\s*\\.\\s*(date|data))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$context)(?:\\s*\\.\\s*(close))?(?:\\s*\\.\\s*(query|allItems|text|textItems|link|linkItems|image|imageItems|data|dataItems|safari))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$file)(?:\\s*\\.\\s*(read|write|delete|list|copy|move|mkdir|exists|isDirectory))?(?:\\s*\\.\\s*(extensions))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$drive)(?:\\s*\\.\\s*(open|save|read|write|delete|list|copy|move|mkdir|exists|isDirectory))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$addin)(?:\\s*\\.\\s*(save|delete|run|compile|eval))?(?:\\s*\\.\\s*(list|current))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$browser)(?:\\s*\\.\\s*(exec))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$keyboard)(?:\\s*\\.\\s*(insert|delete|moveCursor|playInputClick|next|dismiss))?(?:\\s*\\.\\s*(hasText|selectedText))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$network)(?:\\s*\\.\\s*(startPinging|stopPinging))?(?:\\s*\\.\\s*(ifa_data|proxy_settings))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$ssh)(?:\\s*\\.\\s*(connect|disconnect))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$lua)(?:\\s*\\.\\s*(eval|load|call|retain|release))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$widget)(?:\\s*\\.\\s*(mode|modeChanged|height))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$intents)(?:\\s*\\.\\s*(finish))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$photo)(?:\\s*\\.\\s*(take|pick|prompt|save|fetch|delete))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$audio)(?:\\s*\\.\\s*(play|pause|resume|stop|seek))?(?:\\s*\\.\\s*(status|duration|offset))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$pdf)(?:\\s*\\.\\s*(make))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$message)(?:\\s*\\.\\s*(sms|mail))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$calendar|\\$reminder)(?:\\s*\\.\\s*(fetch|create|save|delete))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$contact)(?:\\s*\\.\\s*(pick|fetch|create|save|delete|fetchGroups|addGroup|deleteGroup|updateGroup|addToGroup|removeFromGroup))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$location)(?:\\s*\\.\\s*(fetch|startUpdates|trackHeading|stopUpdates|select))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$motion)(?:\\s*\\.\\s*(startUpdates|stopUpdates))?(?:\\s*\\.\\s*(available))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$safari)(?:\\s*\\.\\s*(open|inject|addReadingItem))?(?:\\s*\\.\\s*(items))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            },
+            "3": {
+              "name": "variable.name.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$text)(?:\\s*\\.\\s*(analysis|tokenize|lookup|speech|base64Encode|base64Decode|URLEncode|URLDecode|HTMLEscape|HTMLUnescape|MD5|SHA1|SHA256|convertToPinYin|markdownToHtml|htmlToMarkdown|decodeData|sizeThatFits))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$quicklook)(?:\\s*\\.\\s*(open))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$share)(?:\\s*\\.\\s*(sheet|wechat|qq|tim))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$qrcode)(?:\\s*\\.\\s*(encode|decode|scan))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$push)(?:\\s*\\.\\s*(schedule|cancel|clear))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$archiver)(?:\\s*\\.\\s*(zip|unzip))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$detector)(?:\\s*\\.\\s*(date|address|link|phoneNumber))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$console)(?:\\s*\\.\\s*(log|info|warn|error|clear|open|close))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        },
+        {
+          "match": "(\\$input)(?:\\s*\\.\\s*(text|speech))?\\b(?!\\$)",
+          "captures": {
+            "1": {
+              "name": "entity.name.class.jsbox"
+            },
+            "2": {
+              "name": "entity.name.function.jsbox"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "scopeName": "source.jsbox"
+}
